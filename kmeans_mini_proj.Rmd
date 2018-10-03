@@ -3,7 +3,8 @@ title: "K Means Mini Proj"
 output: html_notebook
 ---
 
-**Exercise 0: Install these packages if you don't have them already**
+# Exercise 0: 
+**Install these packages if you don't have them already**
 
 ```{r}
 install.packages(c("cluster", "rattle.data","NbClust"))
@@ -16,7 +17,8 @@ data(wine, package="rattle.data")
 head(wine)
 ```
 
-*Exercise 1: Remove the first column from the data and scale it using the scale() function*
+# Exercise 1: 
+**Remove the first column from the data and scale it using the scale() function**
 
 ```{r}
 df <- scale(wine[-1])
@@ -25,10 +27,11 @@ head(df)
 
 **Now we'd like to cluster the data using K-Means. 
 How do we decide how many clusters to use if you don't know that already?**
+
 *We'll try two methods.*
 
 # Method 1: 
-*A plot of the total within-groups sums of squares against the  number of clusters in a K-means solution can be helpful. A bend in the  graph can suggest the appropriate number of clusters.* 
+**A plot of the total within-groups sums of squares against the  number of clusters in a K-means solution can be helpful. A bend in the  graph can suggest the appropriate number of clusters.** 
 
 ```{r}
 wssplot <- function(data, nc=15, seed=1234){
@@ -46,9 +49,11 @@ wssplot(df)
 
 # Exercise 2:
 **How many clusters does this method suggest?** 
+
 *This method would suggest three clusters.* 
 
 **Why does this method work? What's the intuition behind it?** 
+
 *This method plots the within groups sums of squares. There is a large decrease within groups sums of square moving from 1-3 clusters. After three clusters, the decrease levels out, indicating less of a change.* 
 
 **Look at the code for wssplot() and figure out how it works**
@@ -67,6 +72,7 @@ barplot(table(nc$Best.n[1,]),
 
 # Exercise 3: 
 **How many clusters does this method suggest?**
+
 *This method would suggest 3 clusters as well.15 of 23 criteria provided by the NbClust package suggest a 3-cluster solution.*
 
 # Exercise 4: 
@@ -95,6 +101,7 @@ randIndex(ct.km)
 
 # Exercise 6:
 **Visualize these clusters using  function clusplot() from the cluster library.Would you consider this a good clustering?**
+
 *I am not yet sure how to utilize this funciton.*
 
 ```{r}
